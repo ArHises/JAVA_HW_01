@@ -61,8 +61,6 @@ public class TaskFour {
                 index += n;
                 temp = save;
             }
-            System.out.print(Arrays.toString(arr));
-            System.out.println("");
         }
         return arr;
     }
