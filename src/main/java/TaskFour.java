@@ -15,12 +15,11 @@ public class TaskFour {
 //
 //        При каком n в какую сторону сдвиг можете выбирать сами.
 
-        int[] arr = {1,2,3,4,5};
+        int[] arr = {1,2,3,4,5,6};
         System.out.print(Arrays.toString(arr));
         System.out.println("");
 
-        arr = moveArray(arr, 2);
-        System.out.print(Arrays.toString(arr));
+        System.out.print(Arrays.toString(moveArray(arr, 4)));
         System.out.println("");
 
     }
@@ -46,20 +45,52 @@ public class TaskFour {
 
         if (n < 0) n = n + arr.length;
 
-        for (int i = 0; i < arr.length; i++) {
+        if(arr.length % 2 != 0 || n == 1) {
 
-            if (index + n < arr.length) {
-                save = arr[index + n];
-                arr[index + n] = temp;
-                index += n;
-                temp = save;
+            for (int i = 0; i < arr.length; i++) {
 
-            } else {
-                index = index - arr.length;
-                save = arr[index + n];
-                arr[index + n] = temp;
-                index += n;
-                temp = save;
+                if (index + n < arr.length) {
+                    save = arr[index + n];
+                    arr[index + n] = temp;
+                    index += n;
+                    temp = save;
+
+                } else {
+                    index = index - arr.length;
+                    save = arr[index + n];
+                    arr[index + n] = temp;
+                    index += n;
+                    temp = save;
+                }
+                System.out.print(Arrays.toString(arr));
+                System.out.println("");
+            }
+        } else {
+            for (int i = 0; i < arr.length + n - 2; i++) {
+
+                if (index + n < arr.length) {
+                    save = arr[index + n];
+                    arr[index + n] = temp;
+                    index += n;
+                    temp = save;
+
+                }
+                else {
+                    index = index - arr.length;
+                    save = arr[index + n];
+                    arr[index + n] = temp;
+                    index += n - 1;
+                    temp = save;
+                }
+                if(i == arr.length - 1){
+                    index = index - arr.length;
+                    save = arr[index + n];
+                    arr[index + n] = temp;
+                    index += n;
+                    temp = save;
+                }
+                System.out.print(Arrays.toString(arr));
+                System.out.println("");
             }
         }
         return arr;
