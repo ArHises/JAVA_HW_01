@@ -62,8 +62,8 @@ public class TaskFour {
                     index += n;
                     temp = save;
                 }
-                System.out.print(Arrays.toString(arr));
-                System.out.println("");
+//                System.out.print(Arrays.toString(arr));
+//                System.out.println("");
             }
         } else {
             for (int i = 0; i < arr.length + n - 2; i++) {
@@ -89,12 +89,36 @@ public class TaskFour {
                     index += n;
                     temp = save;
                 }
-                System.out.print(Arrays.toString(arr));
-                System.out.println("");
+//                System.out.print(Arrays.toString(arr));
+//                System.out.println("");
             }
         }
         return arr;
     }
 
+    public static int[] rotate(int[] arr, int n) {
+        int length = arr.length;
+        n = n % length; // To handle cases where n is greater than the array length
 
+        if (n < 0) {
+            n += length; // n to be positive
+        }
+
+        reverse(arr, 0, length - 1);
+        reverse(arr, 0, n - 1);
+        reverse(arr, n, length - 1);
+        return arr;
+    }
+
+    private static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
 }
+
+

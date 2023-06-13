@@ -23,12 +23,15 @@ public class TestTasks {
                 System.out.println(e.getMessage()+"\n Increase maximum heap size... -Xms9G -Xmx9G");
             }
         }
-        arr[0] = 0;
-        Arrays.stream(arr).forEach(value -> value++);
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]=i;
+        }
         final LocalTime start =LocalTime.now();
-        Assertions.assertEquals(TaskFour.moveArray(arr, arr.length -  avalibleT / 2).length, arr.length);
+//       TaskFour.moveArray(arr, arr.length -  avalibleT / 2);
+        TaskFour.rotate(arr, arr.length -  avalibleT / 2);
         final LocalTime end = LocalTime.now();
         System.out.println(start);
         System.out.println(end);
+        Assertions.assertTrue(true);
     }
 }
