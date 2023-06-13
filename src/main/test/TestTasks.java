@@ -13,7 +13,7 @@ public class TestTasks {
     @Test()
     public void testTask4() {
         int[] arr = new int[0];
-        System.out.println(avalibleT);
+
         while(true) {
             if(arr.length == avalibleT)
                 break;
@@ -26,9 +26,12 @@ public class TestTasks {
         for (int i = 0; i < arr.length; i++) {
             arr[i]=i;
         }
+        System.out.println("Array length:" + arr.length);
+        int n = arr.length -  avalibleT / 2;
+        System.out.println("N :" + n);
         final LocalTime start =LocalTime.now();
-//       TaskFour.moveArray(arr, arr.length -  avalibleT / 2);
-        TaskFour.rotate(arr, arr.length -  avalibleT / 2);
+//       TaskFour.moveArray(arr,n;
+        TaskFour.rotate(arr, n);
         final LocalTime end = LocalTime.now();
         System.out.println(start);
         System.out.println(end);
